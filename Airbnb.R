@@ -349,26 +349,6 @@ plot(a)
 # 2) The Private room which has an average booking price of around 89.78 dollar, which represents 24.15% of all types of rooms .
 # 3) The Shared room which has an average booking price of around 70.12 dollars , which represents 18.86% of all types of rooms . We have that the Shared room has an average price 38.1% less than Entire home / apt and 5.29% smaller than the Private room.
 
-#Price behavior in relation to room types #
-
-tema1 <- theme(
-  plot.title = element_text(size = 23, hjust = .5),
-  axis.text.x = element_text(size = 19, face = "bold"),
-  axis.text.y = element_text(size = 19, face = "bold"),
-  axis.title.x = element_text(size = 21),
-  axis.title.y = element_text(size = 21))
-
-df <- data.frame(price = data["price"][data["price"] <= 1000], room_type = data["room_type"][data["price"] <= 1000])
-c <- ggplot(data = df, mapping = aes(x = price, fill = room_type)) +
-  geom_density(mapping = aes(fill = room_type), bins = 70, size = 1.3, color = "black", alpha = .6, size = 1.5) +
-  theme_minimal() +
-  ylab("Density") +
-  xlab("Price") +
-  ggtitle("Price <= 1000 | Histogram") +
-  tema1 +
-  theme(legend.position="bottom", legend.text = element_text(colour="black", size=20, 
-                                                             face="bold"))
-plot(c)
 
 #In addition to obtaining information such as the average price for reservations, it is interesting to know how these values that resulted in the average are distributed.
 
@@ -385,68 +365,6 @@ r <- c()
 for(i in 10:1){r <- c(r, i)}
 row.names(top_10_neighbourhood) <- r
 top_10_neighbourhood
-
-
-#Plotting a graph depecting the same
-tema <- theme(
-  plot.title = element_text(size = 23, hjust = .5),
-  axis.text.x = element_text(size = 19, face = "bold"),
-  axis.text.y = element_text(size = 19, face = "bold"),
-  axis.title.x = element_text(size = 21),
-  axis.title.y = element_text(size = 21),
-  legend.position = "none")
-tema1 <- theme(
-  plot.title = element_text(size = 23, hjust = .5),
-  axis.text.x = element_text(size = 7, face = "bold"),
-  axis.text.y = element_text(size = 0, face = "bold"),
-  axis.title.x = element_text(size = 5),
-  axis.title.y = element_text(size = 5),
-  legend.position="none")
-
-options(repr.plot.width=15, repr.plot.height=11)
-a <- ggplot(data = top_10_neighbourhood, mapping = aes(x = neighbourhood, y = Average_price_per_neighborhood)) +
-  geom_bar(stat = "identity", mapping = aes(fill = neighbourhood, color = neighbourhood), alpha = .8, size = 1.5) +
-  geom_label(mapping = aes(label = round(Average_price_per_neighborhood, 2)), size = 6, fill = "#F5FFFA", fontface = "bold") +
-  coord_flip() +
-  theme_ipsum() + 
-  ggtitle("The 10 most expensive neighborhoods") +
-  xlab("") +
-  ylab("") +
-  tema
-
-plot(a)
-
-b <- ggplot(data = top_10_neighbourhood, mapping = aes(x = neighbourhood, y = Average_price_per_neighborhood)) +
-  geom_bar(stat = "identity", mapping = aes(fill = neighbourhood, color = neighbourhood), alpha = .8, size = 1.5) +
-  theme_ipsum() + 
-  ggtitle("The 10 most expensive neighborhoods") +
-  xlab("") +
-  ylab("") +
-  tema1
-
-plot_grid(b + coord_polar())
-
-# Just as we did in Price behavior in relation to room types, let's see how the prices of the 10 neighborhoods with the highest average price for airbnb reservations are distributed.
-tema <- theme(plot.background = element_rect(fill = "white"),
-              plot.title = element_text(size = 23, hjust = .5),
-              axis.text.x = element_text(size = 19, face = "bold"),
-              axis.text.y = element_text(size = 19, face = "bold"),
-              axis.title.x = element_text(size = 21),
-              axis.title.y = element_text(size = 21),
-              legend.position = "none")
-
-na <- c("Tribeca", "Sea Gate", "Riverdale", "Prince's Bay", "Battery Park City", "Flatiron District", "Randall Manor", "NoHo", "SoHo", "Midtown")
-df <- data.frame(neighbourhood = data$neighbourhood[data$neighbourhood == na], price = data$price[data$neighbourhood == na])
-
-ggplot(data = df, mapping = aes(x = price, y = neighbourhood)) +
-  geom_density_ridges(mapping = aes(fill = neighbourhood), bandwidth = 130, alpha = .6, size = 1.5) +
-  theme_economist() +
-  xlab("Price") +
-  ylab("") +
-  ggtitle("Price behavior in relation to neighborhoods") +
-  tema
-
-# Viewing the graph above we can see that the Sea Gate neighborhood does not show any density behavior, due to the fact that it probably only appears once or very few times in the data set. 
 
 #The 10 cheapest neighborhoods to book on airbnb
 top_10_neighbourhood_b <- aggregate(list(data$price), list(data$neighbourhood), mean)
@@ -1071,18 +989,16 @@ plot_grid(a,b,c, ncol = 3, nrow = 1,
 
 ####   Scatter plot of Model Performance   ####
 
-
-options(repr.plot.width=16, repr.plot.height=10)
 ggplot(mpc, aes(Model.RMSE, Model.R2, label = Model, color = Model)) + 
-  geom_point(show.legend = F, pch = 17, size = 4, stroke = 5) + 
+  geom_point(show.legend = F, pch = 16, size = 7, stroke = 5) + 
   geom_text_repel(show.legend = F, size = 4, nudge_y = 0.02, nudge_x = 0.03, 
                   segment.color = NA, fontface = "bold.italic") + 
   theme_bw(base_size = 18) + # ylim(0.4, 0.8) +
-  labs(title = "Model Performance Comparison", x = "RMSE", y = "R Squared")
+  labs(title = "Performance", x = "RMSE", y = "R Squared")
 
 #### Performance of Random Forest ####
 x <- data.frame("MAE" = MAE.randomForest, "RMSE" = RMSE.randomForest, "R-Squared" = R2.randomForest)
 x
 
 # Best Model- Random Forest
-# RMSE = 161.849 and MAE = 46.501.
+
