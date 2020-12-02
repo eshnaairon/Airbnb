@@ -5,28 +5,23 @@
 #############################
 # Installing required packages
 #############################
-if(!require(dplyr)) install.packages("dplyr", repos = "http://cran.us.r-project.org")
-if(!require(ggplot2)) install.packages("ggplot2", repos = "http://cran.us.r-project.org")
-if(!require(glue)) install.packages("glue", repos = "http://cran.us.r-project.org")
+if(!require(pls)) install.packages("pls", repos = "http://cran.us.r-project.org")
+if(!require(mgcv)) install.packages("mgcv", repos = "http://cran.us.r-project.org")
+if(!require(rpart.plot)) install.packages("rpart.plot", repos = "http://cran.us.r-project.org")
+if(!require(rattle)) install.packages("rattle", repos = "http://cran.us.r-project.org")
+if(!require(tinytex)) install.packages("tinytex", repos = "http://cran.us.r-project.org")
+if(!require(latexpdf)) install.packages("latexpdf", repos = "http://cran.us.r-project.org")
+if(!require(hrbrthemes)) install.packages("hrbrthemes", repos = "http://cran.us.r-project.org")
 if(!require(cowplot)) install.packages("cowplot", repos = "http://cran.us.r-project.org")
 if(!require(glue)) install.packages("glue", repos = "http://cran.us.r-project.org")
 if(!require(ggridges)) install.packages("ggridges", repos = "http://cran.us.r-project.org")
 if(!require(RColorBrewer)) install.packages("RColorBrewer", repos = "http://cran.us.r-project.org")
 if(!require(ggthemes)) install.packages("ggthemes", repos = "http://cran.us.r-project.org")
-if(!require(hrbrthemes)) install.packages("hrbrthemes", repos = "http://cran.us.r-project.org")
-if(!require(DescTools)) install.packages("DescTools", repos = "http://cran.us.r-project.org")
-if(!require(httr)) install.packages("httr", repos = "http://cran.us.r-project.org")
-if(!require(glmnet)) install.packages("glmnet", repos = "http://cran.us.r-project.org")
-if(!require(e1071)) install.packages("e1071", repos = "http://cran.us.r-project.org")
-if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
-if(!require(vip)) install.packages("vip", repos = "http://cran.us.r-project.org")
-if(!require(xgboost)) install.packages("xgboost", repos = "http://cran.us.r-project.org")
-if(!require(mboost)) install.packages("mboost", repos = "http://cran.us.r-project.org")
-if(!require(ranger)) install.packages("ranger", repos = "http://cran.us.r-project.org")
-if(!require(rpart)) install.packages("rpart", repos = "http://cran.us.r-project.org")
-if(!require(party)) install.packages("party", repos = "http://cran.us.r-project.org")
-if(!require(randomForest)) install.packages("randomForest", repos = "http://cran.us.r-project.org")
-if(!require(pls)) install.packages("pls", repos = "http://cran.us.r-project.org")
+if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+if(!require(rmarkdown)) install.packages("rmarkdown", repos = "http://cran.us.r-project.org")
+if(!require(knitr)) install.packages("knitr", repos = "http://cran.us.r-project.org")
+if(!require(ggcorrplot)) install.packages("ggcorrplot", repos = "http://cran.us.r-project.org")
+if(!require(psych)) install.packages("psych", repos = "http://cran.us.r-project.org")
 if(!require(ipred)) install.packages("ipred", repos = "http://cran.us.r-project.org")
 if(!require(elasticnet)) install.packages("elasticnet", repos = "http://cran.us.r-project.org")
 if(!require(gbm)) install.packages("gbm", repos = "http://cran.us.r-project.org")
@@ -36,39 +31,31 @@ if(!require(leaps)) install.packages("leaps", repos = "http://cran.us.r-project.
 if(!require(earth)) install.packages("earth", repos = "http://cran.us.r-project.org")
 if(!require(kernlab)) install.packages("kernlab", repos = "http://cran.us.r-project.org")
 if(!require(caTools)) install.packages("caTools", repos = "http://cran.us.r-project.org")
-if(!require(mgcv)) install.packages("mgcv", repos = "http://cran.us.r-project.org")
-if(!require(rpart.plot)) install.packages("rpart.plot", repos = "http://cran.us.r-project.org")
-if(!require(rattle)) install.packages("rattle", repos = "http://cran.us.r-project.org")
-if(!require(ggcorrplot)) install.packages("ggcorrplot", repos = "http://cran.us.r-project.org")
-if(!require(psych)) install.packages("psych", repos = "http://cran.us.r-project.org")
+if(!require(dplyr)) install.packages("dplyr", repos = "http://cran.us.r-project.org")
+if(!require(ggplot2)) install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+if(!require(glue)) install.packages("glue", repos = "http://cran.us.r-project.org")
+if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
+if(!require(vip)) install.packages("vip", repos = "http://cran.us.r-project.org")
+if(!require(xgboost)) install.packages("xgboost", repos = "http://cran.us.r-project.org")
+if(!require(mboost)) install.packages("mboost", repos = "http://cran.us.r-project.org")
+if(!require(ranger)) install.packages("ranger", repos = "http://cran.us.r-project.org")
+if(!require(rpart)) install.packages("rpart", repos = "http://cran.us.r-project.org")
+if(!require(party)) install.packages("party", repos = "http://cran.us.r-project.org")
+if(!require(randomForest)) install.packages("randomForest", repos = "http://cran.us.r-project.org")
 if(!require(car)) install.packages("car", repos = "http://cran.us.r-project.org")
 if(!require(kknn)) install.packages("kknn", repos = "http://cran.us.r-project.org")
 if(!require(kernlab)) install.packages("kernlab", repos = "http://cran.us.r-project.org")
 if(!require(forcats)) install.packages("forcats", repos = "http://cran.us.r-project.org")
+if(!require(hrbrthemes)) install.packages("hrbrthemes", repos = "http://cran.us.r-project.org")
+if(!require(DescTools)) install.packages("DescTools", repos = "http://cran.us.r-project.org")
+if(!require(httr)) install.packages("httr", repos = "http://cran.us.r-project.org")
+if(!require(glmnet)) install.packages("glmnet", repos = "http://cran.us.r-project.org")
+if(!require(e1071)) install.packages("e1071", repos = "http://cran.us.r-project.org")
 if(!require(ggrepel)) install.packages("ggrepel", repos = "http://cran.us.r-project.org")
-if(!require(parameters)) install.packages("parameters", repos = "http://cran.us.r-project.org")
-
+if(!require(kableExtra)) install.packages("kableExtra",repos = "http://cran.us.r-project.org"))
 #############################
 # Loading required packages
 #############################
-library(RColorBrewer)
-library(ggridges)
-library(cowplot)
-library(ggplot2)
-library(dplyr)
-library(glue)
-library(hrbrthemes)
-library(ggthemes)
-library(DescTools)
-library(httr)
-library(glmnet)
-library(e1071)
-library(caret)
-library(vip)
-library(xgboost)
-library(mboost)
-library(ranger) 
-library(rpart)
 library(party)
 library(randomForest)
 library(pls)
@@ -76,22 +63,47 @@ library(ipred)
 library(elasticnet)
 library(gbm)
 library(Cubist)
+library(dplyr)
+library(glue)
+library(hrbrthemes)
+library(ggthemes)
+library(DescTools)
+library(httr)
+library(glmnet)
 library(glmnet)
 library(leaps)
 library(earth)
 library(kernlab)
 library(caTools)
-library(mgcv)
-library(rattle)
-library(rpart.plot)
+library(rmarkdown)
+library(knitr)
 library(ggcorrplot)
 library(psych)
 library(car)
 library(kknn)
 library(kernlab)
-library(forcats) 
+library(mgcv)
+library(rattle)
+library(rpart.plot)
+library(tinytex)
+library(latexpdf)
+library(hrbrthemes)
+library(tidyverse)
+library(forcats)
 library(ggrepel)
-library(parameters)
+library(kableExtra)
+library(RColorBrewer)
+library(ggridges)
+library(cowplot)
+library(ggplot2)
+library(e1071)
+library(caret)
+library(vip)
+library(xgboost)
+library(mboost)
+library(ranger) 
+library(rpart)
+
 #########################
 # Downloading the Dataset 
 #########################
@@ -295,7 +307,7 @@ for(i in 1:99){
 percentil <- data.frame(Price = quantile(data$price, p), minimum_nights = quantile(data$minimum_nights, p))
 percentil
 
-# Some important points that you can describe in relation to the type of analysis are:
+# Observations:
 # 1) 25.00% of bookings made on airbnb are of values equal to or less than 69 dollars and 1 minimum night.
 # 2) 50.00% of bookings made on airbnb are of values equal to or less than 106 dollars and 3 minimum nights.
 # 3) 75.00% of bookings made on airbnb are of values equal to or less than 175 dollars and 5 minimum nights.
@@ -334,7 +346,7 @@ plot(a)
 
 # We can conclude that
 # 1) The Entire home / apt type has an average price for reservations around 211.79 dollars , which represents 56.97 % of all types of rooms . We have the Entire home / apt has an average price of 32.82% more expensive than the Private room and 38.11% more expensive than the Shared room .
-# 2) The Private room which has an average booking price of around 89.78 dollar, which represents 24.15% of all types of rooms . We have that the Private room has an average price 32.82% less than Entire home / apt and 5.29% larger than the Shared room.
+# 2) The Private room which has an average booking price of around 89.78 dollar, which represents 24.15% of all types of rooms .
 # 3) The Shared room which has an average booking price of around 70.12 dollars , which represents 18.86% of all types of rooms . We have that the Shared room has an average price 38.1% less than Entire home / apt and 5.29% smaller than the Private room.
 
 #Price behavior in relation to room types #
@@ -468,70 +480,6 @@ plot(a)
 
 #### Geographic analysis ####
 
-#In this analysis I will explore the behavior of the price, neighborhood_group, minimum_nights and room_type through the coordinated latitude and longitude available in the airbnb data. This type of exploitation is extremely useful for understanding the behavior of the data on a geographic scale, consequently helping in decision making.
-tema <- theme(plot.title = element_text(size = 23, hjust = .5),
-              axis.text.x = element_text(size = 19, face = "bold"),
-              axis.text.y = element_text(size = 19, face = "bold"),
-              axis.title.x = element_text(size = 19),
-              axis.title.y = element_text(size = 19),
-              legend.text = element_text(colour="black", size=19, face="bold"),
-              legend.background = element_rect(fill="#F5FFFA", size=0.5, linetype="dashed", 
-                                               colour ="black"))
-
-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = price), size = 3) +
-  ggtitle("") +
-  tema
-
-#Further exploring in terms of neighbourhood_group, room_type and minimum nights
-tema <- theme(plot.title = element_text(size = 23, hjust = .5),
-              axis.text.x = element_text(size = 19, face = "bold"),
-              axis.text.y = element_text(size = 19, face = "bold"),
-              axis.title.x = element_text(size = 19),
-              axis.title.y = element_text(size = 19),
-              legend.text = element_text(colour="black", size=7, face="bold"),
-              legend.title = element_text(colour="black", size=9, face="bold"),
-              legend.background = element_rect(fill="#F5FFFA", size=0.1, linetype="dashed", 
-                                               colour ="black"))
-options(repr.plot.width=22, repr.plot.height=14)
-a<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = neighbourhood_group), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(a)
-b<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = price), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(b)
-c<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = room_type), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(c)
-d<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = minimum_nights), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(d)
 # As our database prices are mostly below 100 dollars, we will filter the data to obtain only bookings below 100 dollars.
 
 df <- data.frame(price = data["price"][data["price"] <= 100], room_type = data["room_type"][data["price"] <= 100], lat = data["latitude"][data["price"] <= 100], lon = data["longitude"][data["price"] <= 100],
