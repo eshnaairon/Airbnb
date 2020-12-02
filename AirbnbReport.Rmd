@@ -124,16 +124,14 @@ library(kableExtra)
 \newpage
 
 # Executive Summary
-Airbnb, Inc. is an online marketplace for offering lodging,homestays, or tourism experiences. The company does not own any of the real estate listings, nor does it host events; it acts as a broker, receiving commissions from each booking. This service has started in 2008 with 2 hosts and 3 travellers. Its number one concern is assuring safety of its customers while providing enjoyable experiences.
+Airbnb, Inc. is an online marketplace that offers accommodation and entertainment. The company does not have a real estate list, and does not host events; acts as a reseller, earning commissions from each booking. The service was launched in 2008 with 2 hosts and 3 guests. Its number one concern ensures the safety of its customers while providing an enjoyable experience.
 
-I performed a descriptive and exploratory analysis of the data, in order to understand how the phenomena of each variable behave individually and transversely. To perform this work, I will use statistical techniques very common in any type of analysis, simple or complex, such as classification of variables, frequency distribution tables, histograms, measures of central tendency and etc. 
+I have performed descriptive and critical data analysis, in order to understand how each of the variables behaves individually and dynamically. To do this task, I will use the most common mathematical techniques for any type of analysis, simple or complex, such as variable variables, frequency distribution tables, histograms, intermediate inclination measures and more.
 
-I have also done analysis on predicting the price of Airbnb listings as a suggestion for the hosts. 
+I also did an analysis by predicting the price of the Airbnb list as a suggestion for experts.
 
-The models I have applied here are Linear Regression  , Partial Least-Squares Regression (PLS),
-Boosted Generalized Linear Model ,Recursive Partitioning and Regression Trees, Pruned Tree Models, Bagged CART ,Random Forest ,Stochastic Gradient Boosting ,KNN ,Ridge Regression ,Lasso Regression
-and Support Vector Regression
-
+The models I have used here are Linear Regression, Partial Least-Squares Regression (PLS),
+Enhanced Normal Line Model, Repeated Trees and Reversal Trees, Shaved Tree Models, Bound Carriage, Random Forest, Stochastic Gradient Boosting Strength, KNN, Ridge Regression, Lasso Regression and Support Vector Regression.
 
 # Dataset
 
@@ -144,9 +142,9 @@ data<-read.csv("AB_NYC_2019.csv")
 
 ```
 
-There are 48895 observations which has data in 16 columns.
-Both categorical and quantitative data types could be observed.
-Each row represents details about lodgings in NYC.
+There are 48895 views with data in 16 columns.
+Both separate and multiple types of data can be detected.
+Each line represents details about inclusion in NYC.
 
 **Source**
 https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
@@ -155,8 +153,6 @@ https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
 I will perform a descriptive ,geographic and exploratory analysis of the data, in order to understand how the phenomena of each variable behave individually and transversely, in addition to to generate hypotheses useful for future decision-making.
 
 ## Descriptive Analysis
-
-Descriptive analyzes are the first manipulations performed in a quantitative study and their main objective is to summarize and explore the behavior of the data involved in the study. 
 
 **Dimensions**
 
@@ -401,7 +397,7 @@ for(i in 1:99){
 percentil <- data.frame(Price = quantile(data$price, p), minimum_nights = quantile(data$minimum_nights, p))
 percentil 
 ```
-Some important points that you can describe in relation to the type of analysis are-
+Observations-
 
 1) 25.00% of bookings made on airbnb are of values equal to or less than 69 dollars and 1 minimum night.
 
@@ -412,7 +408,6 @@ Some important points that you can describe in relation to the type of analysis 
 4) 99.00% of bookings made on airbnb are of values equal to or less than 799 dollars and 45 minimum nights, meaning only 1.0% of bookings are of values above 799 dollars with a maximum value of 10000 dollars and 1250 minimum nights.
 
 ## Exploratory Data Anaylsis
-In statistics, exploratory data analysis is an approach to the analysis of data sets in order to summarize their main characteristics, often with visual methods.
 **Average price per room type **
 ```{r, echo=FALSE, include=TRUE}
 mean_room_type <- aggregate(list(average_price = data$price), list(room_type = data$room_type), mean)
@@ -442,12 +437,12 @@ We can conclude that-
 
 1) The Entire home / apt type has an average price for reservations around 211.79 dollars , which represents 56.97 % of all types of rooms . We have the Entire home / apt has an average price of 32.82% more expensive than the Private room and 38.11% more expensive than the Shared room .
 
-2) The Private room which has an average booking price of around 89.78 dollar, which represents 24.15% of all types of rooms . We have that the Private room has an average price 32.82% less than Entire home / apt and 5.29% larger than the Shared room.
+2) The Private room which has an average booking price of around 89.78 dollar, which represents 24.15% of all types of rooms .
 
 3) The Shared room which has an average booking price of around 70.12 dollars , which represents 18.86% of all types of rooms . We have that the Shared room has an average price 38.1% less than Entire home / apt and 5.29% smaller than the Private room.
 
 **Price behavior in relation to room types**
-```{r, echo=FALSE, include=TRUE}
+```{r, echo=FALSE, include=TRUE,out.width='75%'}
 tema1 <- theme(
   plot.title = element_text(size = 23, hjust = .5),
   axis.text.x = element_text(size = 19, face = "bold"),
@@ -468,7 +463,6 @@ c <- ggplot(data = df, mapping = aes(x = price, fill = room_type)) +
 plot(c)
 ```
 In addition to obtaining information such as the average price for reservations, it is interesting to know how these values that resulted in the average are distributed.
-
 
 **Price in Relation to Neighborhood **
 
@@ -550,6 +544,7 @@ a <- ggplot(data = top_10_neighbourhood_b, mapping = aes(x = neighbourhood, y = 
 plot(a)
 ```
 
+
 ## Geographic analysis
 
 In this analysis I will explore the behavior of the price, neighborhood_group, minimum_nights and room_type through the coordinated latitude and longitude available in the airbnb data. This type of exploitation is extremely useful for understanding the behavior of the data on a geographic scale, consequently helping in decision making.
@@ -570,57 +565,6 @@ ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
   ggtitle("") +
   tema
 ```
-
-Further exploring in terms of neighbourhood_group, room_type and minimum nights.
-```{r, echo=FALSE, include=TRUE}
-tema <- theme(plot.title = element_text(size = 23, hjust = .5),
-              axis.text.x = element_text(size = 19, face = "bold"),
-              axis.text.y = element_text(size = 19, face = "bold"),
-              axis.title.x = element_text(size = 19),
-              axis.title.y = element_text(size = 19),
-              legend.text = element_text(colour="black", size=7, face="bold"),
-              legend.title = element_text(colour="black", size=9, face="bold"),
-              legend.background = element_rect(fill="#F5FFFA", size=0.1, linetype="dashed", 
-                                               colour ="black"))
-options(repr.plot.width=22, repr.plot.height=14)
-a<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = neighbourhood_group), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(a)
-b<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = price), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(b)
-c<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = room_type), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(c)
-d<-ggplot(data = data, mapping = aes(x = latitude, y = longitude)) +
-  theme_minimal() +
-  scale_fill_identity() +
-  geom_point(mapping = aes(color = minimum_nights), size = 3) +
-  ggtitle("") +
-  xlab("Latitude") +
-  ylab("Longitude") +
-  tema
-plot(d)
-```
-
 
 As our database prices are mostly below 100 dollars, we will filter the data to obtain only bookings below 100 dollars.
 ```{r, echo=FALSE, include=TRUE}
@@ -1250,8 +1194,9 @@ kable() %>%
 ```
 
 # Conclusion 
-The objective of this project was to use machine learning models to predict the Airbnb Prices and understand what features were important to explain the transit. In this report, we tried many models, created some new features, we selected Random Forest model betcause it has the best performance. The final model obtained an RMSE of 161.849 and MAE of 46.501. The most important feature to explain price is neighbourhood group .
-
+# Conclusion
+I performed Expolatory analysis on the data and used various machine learning models to predict Airbnb prices and to understand what factors are important to define it. In this report, I tried various models like Partial Least-Squares Regression (PLS),
+Boosted Generalized Linear Model ,Recursive Partitioning and Regression Trees, Pruned Tree Models etc.and chose the Random Forest model because it works really well. The final model recieved an RMSE of `r RMSE.randomForest` and MAE of  `r MAE.randomForest` .
 # References
 https://towardsdatascience.com/predicting-airbnb-prices-with-machine-learning-and-deep-learning-f46d44afb8a6
 
