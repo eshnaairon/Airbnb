@@ -9,3 +9,6 @@ The models I have used here are Linear Regression, Partial Least-Squares Regress
 Enhanced Normal Line Model, Repeated Trees and Reversal Trees, Shaved Tree Models, Bound Carriage, Random Forest, Stochastic Gradient Boosting Strength, KNN, Ridge Regression, Lasso Regression and Support Vector Regression.
 ## Dataset
 Source https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
+
+⚠️ Disclaimer
+Please, don't fork or copy this repository.
